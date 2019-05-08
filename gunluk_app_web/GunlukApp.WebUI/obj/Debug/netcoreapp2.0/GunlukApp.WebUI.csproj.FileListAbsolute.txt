@@ -1,0 +1,11 @@
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.WebUI.deps.json
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.WebUI.runtimeconfig.json
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.WebUI.runtimeconfig.dev.json
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.WebUI.dll
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.WebUI.pdb
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\obj\Debug\netcoreapp2.0\GunlukApp.WebUI.csprojAssemblyReference.cache
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\obj\Debug\netcoreapp2.0\GunlukApp.WebUI.csproj.CoreCompileInputs.cache
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\obj\Debug\netcoreapp2.0\GunlukApp.WebUI.AssemblyInfoInputs.cache
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\obj\Debug\netcoreapp2.0\GunlukApp.WebUI.AssemblyInfo.cs
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\obj\Debug\netcoreapp2.0\GunlukApp.WebUI.dll
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\obj\Debug\netcoreapp2.0\GunlukApp.WebUI.pdb

@@ -1,0 +1,6 @@
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.DataAccess\bin\Debug\GunlukApp.DataAccess.dll
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.DataAccess\bin\Debug\GunlukApp.DataAccess.pdb
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.DataAccess\obj\Debug\GunlukApp.DataAccess.csprojAssemblyReference.cache
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.DataAccess\obj\Debug\GunlukApp.DataAccess.csproj.CoreCompileInputs.cache
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.DataAccess\obj\Debug\GunlukApp.DataAccess.dll
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.DataAccess\obj\Debug\GunlukApp.DataAccess.pdb
