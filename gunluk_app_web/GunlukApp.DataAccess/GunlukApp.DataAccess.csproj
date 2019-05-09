@@ -60,7 +60,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Concrete\AnnouncementsRepository.cs" />
+    <Compile Include="Concrete\ArticlesRepository.cs" />
     <Compile Include="Concrete\BaseMongoRepository.cs" />
+    <Compile Include="Concrete\DiaryRepository.cs" />
+    <Compile Include="Concrete\SuperUserRepository.cs" />
     <Compile Include="Concrete\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

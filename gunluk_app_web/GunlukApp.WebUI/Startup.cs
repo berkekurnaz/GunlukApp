@@ -28,6 +28,10 @@ namespace GunlukApp.WebUI
 
             string mongoConnectionString = this.Configuration.GetConnectionString("MongoConnectionString");
             services.AddTransient(s => new UserRepository(mongoConnectionString, "DbDiaryApp", "Users"));
+            services.AddTransient(s => new ArticlesRepository(mongoConnectionString, "DbDiaryApp", "Articles"));
+            services.AddTransient(s => new DiaryRepository(mongoConnectionString, "DbDiaryApp", "Diary"));
+            services.AddTransient(s => new SuperUserRepository(mongoConnectionString, "DbDiaryApp", "SuperUsers"));
+            services.AddTransient(s => new AnnouncementsRepository(mongoConnectionString, "DbDiaryApp", "Announcements"));
 
             services.AddSingleton<IFileProvider>(physicalProvider);
             services.AddSession();

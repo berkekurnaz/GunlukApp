@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace GunlukApp.DataAccess.Concrete
 {
-    public class UserRepository : BaseMongoRepository<User>
+    public class SuperUserRepository : BaseMongoRepository<SuperUser>
     {
 
-        public UserRepository(string mongoDbConnectionString, string dbName, string collectionName) : base(mongoDbConnectionString,dbName,collectionName)
+        public SuperUserRepository(string mongoDbConnectionString, string dbName, string collectionName) : base(mongoDbConnectionString, dbName, collectionName)
         {
 
         }
