@@ -5028,6 +5028,27 @@
         "runtime": {
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
+      },
+      "GunlukApp.DataAccess/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "GunlukApp.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/GunlukApp.DataAccess.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GunlukApp.DataAccess.dll": {}
+        }
+      },
+      "GunlukApp.Entities/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/GunlukApp.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GunlukApp.Entities.dll": {}
+        }
       }
     }
   },
@@ -13252,10 +13273,22 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "GunlukApp.DataAccess/1.0.0": {
+      "type": "project",
+      "path": "../GunlukApp.DataAccess/GunlukApp.DataAccess.csproj",
+      "msbuildProject": "../GunlukApp.DataAccess/GunlukApp.DataAccess.csproj"
+    },
+    "GunlukApp.Entities/1.0.0": {
+      "type": "project",
+      "path": "../GunlukApp.Entities/GunlukApp.Entities.csproj",
+      "msbuildProject": "../GunlukApp.Entities/GunlukApp.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "GunlukApp.DataAccess >= 1.0.0",
+      "GunlukApp.Entities >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.8",
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.3"
@@ -13290,7 +13323,14 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\YazilimProjeleri2019\\GunlukSitesi\\gunluk_app_web\\GunlukApp.DataAccess\\GunlukApp.DataAccess.csproj": {
+              "projectPath": "D:\\YazilimProjeleri2019\\GunlukSitesi\\gunluk_app_web\\GunlukApp.DataAccess\\GunlukApp.DataAccess.csproj"
+            },
+            "D:\\YazilimProjeleri2019\\GunlukSitesi\\gunluk_app_web\\GunlukApp.Entities\\GunlukApp.Entities.csproj": {
+              "projectPath": "D:\\YazilimProjeleri2019\\GunlukSitesi\\gunluk_app_web\\GunlukApp.Entities\\GunlukApp.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
