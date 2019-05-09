@@ -6,10 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Driver;
+using GunlukApp.DataAccess.Abstract;
+using GunlukApp.Entities.Abstract;
 
 namespace GunlukApp.DataAccess.Concrete
 {
-    public class BaseMongoRepository<T> where T : MongoBaseModel
+    public class BaseMongoRepository<T> : IBaseMongoRepository<T> where T : MongoBaseModel, IEntity
     {
 
         private readonly IMongoCollection<T> mongoCollection;
