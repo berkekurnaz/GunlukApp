@@ -8,9 +8,11 @@ namespace GunlukApp.WebUI.Controllers
 {
     public class AnasayfaController : Controller
     {
+
         public IActionResult Index()
         {
             return View();
         }
+
     }
 }

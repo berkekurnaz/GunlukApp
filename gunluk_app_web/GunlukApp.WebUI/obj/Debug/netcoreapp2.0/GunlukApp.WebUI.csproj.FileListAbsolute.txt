@@ -11,16 +11,8 @@ D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\obj\Debug\ne
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\obj\Debug\netcoreapp2.0\GunlukApp.WebUI.pdb
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.DataAccess.dll
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.Entities.dll
-D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\MongoDB.Driver.dll
-D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\MongoDB.Bson.dll
-D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\MongoDB.Driver.Core.dll
-D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\DnsClient.dll
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.DataAccess.pdb
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.DataAccess.dll.config
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.Entities.pdb
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\GunlukApp.Entities.dll.config
-D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\MongoDB.Driver.xml
-D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\MongoDB.Bson.xml
-D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\MongoDB.Driver.Core.xml
-D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\bin\Debug\netcoreapp2.0\DnsClient.xml
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.WebUI\obj\Debug\netcoreapp2.0\GunlukApp.WebUI.csproj.CopyComplete

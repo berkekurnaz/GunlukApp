@@ -1,6 +1,5 @@
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\bin\Debug\GunlukApp.Entities.dll
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\bin\Debug\GunlukApp.Entities.pdb
-D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\obj\Debug\GunlukApp.Entities.csprojAssemblyReference.cache
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\obj\Debug\GunlukApp.Entities.csproj.CoreCompileInputs.cache
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\obj\Debug\GunlukApp.Entities.dll
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\obj\Debug\GunlukApp.Entities.pdb
