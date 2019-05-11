@@ -1,0 +1,45 @@
+﻿@model SuperUser
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Views/Shared/_LayoutYonetim.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-heading border bottom">
+            <br />
+            <h4 class="card-title text-center">Yönetici Güncelle</h4>
+        </div>
+        <div class="card-block">
+            <div class="row">
+                <div class="col-md-9 ml-auto mr-auto">
+                    <form asp-controller="YonetimYoneticiler" asp-action="Guncelle" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                        <br />
+                        <div class="form-group">
+                            <label>Ad Soyad</label>
+                            <input type="text" class="form-control" asp-for="NameSurname" value="@Model.NameSurname">
+                        </div>
+                        <div class="form-group">
+                            <label>Mail Adresi</label>
+                            <input type="text" class="form-control" asp-for="Email" value="@Model.Email">
+                        </div>
+                        <div class="form-group">
+                            <label>Eklenme Tarihi</label>
+                            <input type="text" class="form-control" asp-for="CreatedDate" value="@Model.CreatedDate">
+                        </div>
+                        <div class="form-group">
+                            <label>Kullanıcı Adı</label>
+                            <input type="text" class="form-control" asp-for="Username" value="@Model.Username">
+                        </div>
+                        <div class="form-group">
+                            <label>Şifre</label>
+                            <input type="text" class="form-control" asp-for="Password" value="@Model.Password">
+                        </div>
+
+                        <center><button type="submit" class="btn btn-success"><i class="fa fa-wrench" aria-hidden="true"></i> Yönetici Güncelle</button></center><br />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
