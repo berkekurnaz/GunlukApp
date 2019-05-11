@@ -1,0 +1,66 @@
+﻿@model Announcements
+@{
+    ViewData["Title"] = "Incele";
+    Layout = "~/Views/Shared/_LayoutYonetim.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-heading border bottom">
+            <br />
+            <h4 class="card-title text-center">Duyuruyu İncele</h4>
+        </div>
+        <div class="card-block">
+            <div class="row">
+                <div class="col-md-9 ml-auto mr-auto">
+                    <form class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                        <div class="form-group">
+                            <label>Id</label>
+                            <input type="text" class="form-control" asp-for="Id" value="@Model.Id" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Duyuru Başlık</label>
+                            <input type="text" class="form-control" asp-for="Title" value="@Model.Title" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Eklenme Tarihi</label>
+                            <input type="text" class="form-control" asp-for="CreatedDate" value="@Model.CreatedDate" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Duyuru İçerik</label>
+                            <textarea class="form-control" asp-for="Content" rows="10" readonly>@Model.Content</textarea>
+                        </div>
+                    </form>
+
+                    <center>
+                        <a href="/YonetimDuyurular/Index/" class="btn btn-info"><i class="fa fa-undo" aria-hidden="true"></i> Geriye Dön</a>
+                        <a href="" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash" aria-hidden="true"></i> Sil</a>
+                    </center>
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Duyuruyu Silmek İstediğine Emin Misin ?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Sil Butonuna Tıkladıktan Sonra Bu İşlemi Geri Alamazsınız...</div>
+            <div class="modal-footer">
+                <button class="btn btn-success" type="button" data-dismiss="modal">İptal Et</button>
+                <form asp-controller="YonetimDuyurular" asp-action="Sil" asp-route-Id="@Model.Id" method="post" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

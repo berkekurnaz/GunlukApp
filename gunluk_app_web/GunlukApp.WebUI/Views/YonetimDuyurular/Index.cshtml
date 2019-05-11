@@ -1,4 +1,4 @@
-﻿@model IEnumerable<User>
+﻿@model IEnumerable<Announcements>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_LayoutYonetim.cshtml";
@@ -18,15 +18,15 @@
         <div class="card mb-3 text-center">
             <div class="card-header">
                 <i class="fas fa-table"></i>
-                Sisteme Kayıtlı Üyeler
+                Sisteme Kayıtlı Duyurular
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="myTable" class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th>Kullanıcı Adı</th>
-                                <th>Üyelik Tarihi</th>
+                                <th>Duyuru Başlık</th>
+                                <th>Eklenme Tarihi</th>
                                 <th>İşlemler</th>
                             </tr>
                         </thead>
@@ -34,10 +34,11 @@
                             @foreach (var item in Model)
                             {
                                 <tr>
-                                    <td>@item.Username</td>
+                                    <td>@item.Title</td>
                                     <td>@item.CreatedDate</td>
                                     <td>
-                                        <a href="/YonetimUyeler/Incele/@item.Id" class="btn btn-info btn-sm"><i class="fa fa-search" aria-hidden="true"></i> İncele</a>
+                                        <a href="/YonetimDuyurular/Incele/@item.Id" class="btn btn-info btn-sm"><i class="fa fa-search" aria-hidden="true"></i> İncele</a>
+                                        <a href="/YonetimDuyurular/Guncelle/@item.Id" class="btn btn-success btn-sm"><i class="fa fa-wrench" aria-hidden="true"></i> Güncelle</a>
                                         <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash" aria-hidden="true"></i> Sil</a>
                                     </td>
                                 </tr>
@@ -47,7 +48,7 @@
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Üyeyi Silmek İstediğine Emin Misin ?</h5>
+                                                <h5 class="modal-title" id="exampleModalLabel">Duyuruyu Silmek İstediğine Emin Misin ?</h5>
                                                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                                                     <span aria-hidden="true">×</span>
                                                 </button>
@@ -55,7 +56,7 @@
                                             <div class="modal-body">Sil Butonuna Tıkladıktan Sonra Bu İşlemi Geri Alamazsınız...</div>
                                             <div class="modal-footer">
                                                 <button class="btn btn-success" type="button" data-dismiss="modal">İptal Et</button>
-                                                <form asp-controller="YonetimUyeler" asp-action="Sil" asp-route-Id="@item.Id" method="post" enctype="multipart/form-data">
+                                                <form asp-controller="YonetimDuyurular" asp-action="Sil" asp-route-Id="@item.Id" method="post" enctype="multipart/form-data">
                                                     <button type="submit" class="btn btn-danger">Sil</button>
                                                 </form>
                                             </div>
@@ -85,4 +86,5 @@
         </div>
     }
 </div>
+
 

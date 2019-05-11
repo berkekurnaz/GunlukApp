@@ -1,0 +1,37 @@
+﻿@model Announcements
+@{
+    ViewData["Title"] = "Guncelle";
+    Layout = "~/Views/Shared/_LayoutYonetim.cshtml";
+}
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-heading border bottom">
+            <br />
+            <h4 class="card-title text-center">Duyuru Güncelle</h4>
+        </div>
+        <div class="card-block">
+            <div class="row">
+                <div class="col-md-9 ml-auto mr-auto">
+                    <form asp-controller="YonetimDuyurular" asp-action="Guncelle" method="post" enctype="multipart/form-data" class="form-horizontal mrg-top-40 pdd-right-30 ng-pristine ng-valid">
+                        <br />
+                        <div class="form-group">
+                            <label>Duyuru Başlık</label>
+                            <input type="text" class="form-control" asp-for="Title" value="@Model.Title">
+                        </div>
+                        <div class="form-group">
+                            <label>Eklenme Tarihi</label>
+                            <input type="text" class="form-control" asp-for="CreatedDate" value="@Model.CreatedDate">
+                        </div>
+                        <div class="form-group">
+                            <label>Duyuru İçerik</label>
+                            <textarea class="form-control" asp-for="Content" rows="10">@Model.Content</textarea>
+                        </div>
+                        <center><button type="submit" class="btn btn-info"><i class="fa fa-wrench" aria-hidden="true"></i> Duyuru Güncelle</button></center><br />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

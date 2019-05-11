@@ -30,7 +30,7 @@ namespace GunlukApp.WebUI.Controllers.Site
             var item = this.userRepository.GetById(id);
             if (item == null)
             {
-                return RedirectToAction("Yonetim", "Hata");
+                return RedirectToAction("Hata", "Yonetim");
             }
             return View(item);
         }
