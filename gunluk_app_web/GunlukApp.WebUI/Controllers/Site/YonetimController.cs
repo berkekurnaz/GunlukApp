@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GunlukApp.DataAccess.Concrete;
 using GunlukApp.Entities.Concrete;
+using GunlukApp.WebUI.Filter;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,11 +20,13 @@ namespace GunlukApp.WebUI.Controllers.Site
             this.superUserRepository = superUserRepository;
         }
 
+        [SuperUserAuthFilter]
         public IActionResult Index()
         {
             return View();
         }
 
+        [SuperUserAuthFilter]
         public IActionResult Hata()
         {
             return View();
@@ -52,16 +55,19 @@ namespace GunlukApp.WebUI.Controllers.Site
             return RedirectToAction("Index", "Anasayfa");
         }
 
+        [SuperUserAuthFilter]
         public IActionResult Sss()
         {
             return View();
         }
 
+        [SuperUserAuthFilter]
         public IActionResult Ayarlar()
         {
             return View();
         }
 
+        [SuperUserAuthFilter]
         public IActionResult Kodlar()
         {
             return View();

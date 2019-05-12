@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using GunlukApp.DataAccess.Concrete;
 using GunlukApp.Entities.Concrete;
+using GunlukApp.WebUI.Filter;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GunlukApp.WebUI.Controllers.Site
 {
+    [SuperUserAuthFilter]
     public class YonetimDuyurularController : Controller
     {
 
