@@ -1,0 +1,33 @@
+﻿@model User
+@{
+    ViewData["Title"] = "UyeOl";
+    Layout = "~/Views/Shared/_LayoutMain.cshtml";
+}
+
+<!-- Sitenin Form Kısmı -->
+<div class="container text-center">
+    <br>
+    <h3>Üye Ol</h3>
+    <hr>
+    <form asp-controller="Anasayfa" asp-action="UyeOl" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="formGroupExampleInput">Adınız Soyadınız</label>
+            <input type="text" class="form-control" asp-for="NameSurname" placeholder="Adınızı Ve Soyadınızı Bu Alana Giriniz..." required>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Mail Adresiniz</label>
+            <input type="text" class="form-control" asp-for="Email" placeholder="Mail Adresinizi Bu Alana Giriniz..." required>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Kullanıcı Adınız</label>
+            <input type="text" class="form-control" asp-for="Username" placeholder="Kullanıcı Adınızı Bu Alana Giriniz..." required>
+        </div>
+        <div class="form-group">
+            <label for="formGroupExampleInput2">Şifreniz</label>
+            <input type="text" class="form-control" asp-for="Password" placeholder="Şifrenizi Bu Alana Giriniz..." required>
+        </div>
+        <small class="form-text text-muted">*Üye Ol Butonuna Tıkladığınız Zaman Kullanıcı Sözleşmesini Okumuş Ve Kabul Etmiş Sayılırsınız.</small><br>
+        <button type="submit" class="btn btn-primary">Üye Ol</button>
+    </form>
+</div>
+

@@ -3,26 +3,55 @@
     Layout = null;
 }
 
-<!DOCTYPE html>
-
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Günlük App</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="~/TemplateMain/Css/bootstrap.min.css" rel="stylesheet" />
+
+    <title>Hello, world!</title>
 </head>
 <body>
 
-    <div class="header">
+    <!-- Sitenin Header Kısmı -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/Anasayfa/Index/">Günlük Sitesi</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Anasayfa/Index/">Anasayfa <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Anasayfa/Nedir/">Nedir <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Anasayfa/NasilKullanilir/">Nasıl Kullanılır <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Anasayfa/Takim/">Takım <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/Anasayfa/Iletisim/">İletişim <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-    </div>
+    @RenderBody()
 
-    <div class="body">
-        @RenderBody()
-    </div>
 
-    <div class="footer">
-
-    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/TemplateMain/Js/jquery-3.3.1.slim.min.js"></script>
+    <script src="~/TemplateMain/Js/popper.min.js"></script>
+    <script src="~/TemplateMain/Js/bootstrap.min.js"></script>
 
 </body>
 </html>
