@@ -52,5 +52,20 @@ namespace GunlukApp.WebUI.Controllers.Site
             return RedirectToAction("Index", "Anasayfa");
         }
 
+        public IActionResult Sss()
+        {
+            return View();
+        }
+
+        public IActionResult Ayarlar()
+        {
+            return View();
+        }
+
+        public IActionResult Kodlar()
+        {
+            return View();
+        }
+
     }
 }
