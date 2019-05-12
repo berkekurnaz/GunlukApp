@@ -15,5 +15,26 @@ namespace GunlukApp.DataAccess.Concrete
 
         }
 
+        public User Login(User user)
+        {
+            var result = new User();
+            result = this.GetAll().Find(x => x.Username == user.Username && x.Password == user.Password);
+            return result;
+        }
+
+        public User CheckByUsername(User user)
+        {
+            var result = new User();
+            result = this.GetAll().Find(x => x.Username == user.Username);
+            return result;
+        }
+
+        public User CheckByMail(User user)
+        {
+            var result = new User();
+            result = this.GetAll().Find(x => x.Email == user.Email);
+            return result;
+        }
+
     }
 }

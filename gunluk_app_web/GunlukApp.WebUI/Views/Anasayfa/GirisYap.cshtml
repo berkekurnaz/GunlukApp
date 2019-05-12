@@ -9,6 +9,14 @@
     <br>
     <h3>Giriş Yap</h3>
     <hr>
+
+    @if (ViewBag.GirisYapmaHataMesaji != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @ViewBag.GirisYapmaHataMesaji
+        </div>
+    }
+
     <form asp-controller="Anasayfa" asp-action="GirisYap" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="formGroupExampleInput2">Kullanıcı Adınız</label>
@@ -20,5 +28,6 @@
         </div>
         <button type="submit" class="btn btn-primary">Giriş Yap</button>
     </form>
+
 </div>
 

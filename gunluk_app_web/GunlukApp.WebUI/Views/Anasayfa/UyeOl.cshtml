@@ -9,6 +9,14 @@
     <br>
     <h3>Üye Ol</h3>
     <hr>
+    
+    @if(ViewBag.UyeOlmaHataMesaji != null)
+    {
+        <div class="alert alert-danger" role="alert">
+           @ViewBag.UyeOlmaHataMesaji
+        </div>
+    }
+
     <form asp-controller="Anasayfa" asp-action="UyeOl" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="formGroupExampleInput">Adınız Soyadınız</label>
@@ -29,5 +37,6 @@
         <small class="form-text text-muted">*Üye Ol Butonuna Tıkladığınız Zaman Kullanıcı Sözleşmesini Okumuş Ve Kabul Etmiş Sayılırsınız.</small><br>
         <button type="submit" class="btn btn-primary">Üye Ol</button>
     </form>
+
 </div>
 
