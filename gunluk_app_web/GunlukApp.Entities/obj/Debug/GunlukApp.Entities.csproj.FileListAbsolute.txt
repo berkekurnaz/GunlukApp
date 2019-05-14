@@ -111,3 +111,4 @@ D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\bin\Debug
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\bin\Debug\MongoDB.Driver.Core.xml
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\bin\Debug\System.Buffers.xml
 D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\obj\Debug\GunlukApp.Entities.csproj.CopyComplete
+D:\YazilimProjeleri2019\GunlukSitesi\gunluk_app_web\GunlukApp.Entities\obj\Debug\GunlukApp.Entities.csprojAssemblyReference.cache

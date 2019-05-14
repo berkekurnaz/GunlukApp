@@ -1,28 +1,256 @@
-﻿
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>_LayoutPanel</title>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Günlük Sitesi Açıklama">
+    <meta name="author" content="Berke Kurnaz">
+    <meta name="keywords" content="Günlük Sitesi Açıklama">
+    <!-- Title Page-->
+    <title>Panel</title>
+    <!-- Fontfaces CSS-->
+    <link href="~/TemplatePanel/css/font-face.css" rel="stylesheet" />
+    <link href="~/TemplatePanel/vendor/font-awesome-4.7/css/font-awesome.css" rel="stylesheet" />
+    <link href="~/TemplatePanel/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" />
+    <link href="~/TemplatePanel/vendor/mdi-font/css/material-design-iconic-font.css" rel="stylesheet" />
+    <!-- Bootstrap CSS-->
+    <link href="~/TemplatePanel/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" />
+    <!-- Vendor CSS-->
+    <link href="~/TemplatePanel/vendor/animsition/animsition.min.css" rel="stylesheet" />
+    <link href="~/TemplatePanel/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
+    <link href="~/TemplatePanel/vendor/wow/animate.css" rel="stylesheet" />
+    <link href="~/TemplatePanel/vendor/css-hamburgers/hamburgers.css" rel="stylesheet" />
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+
+    <link href="~/TemplatePanel/vendor/select2/select2.min.css" rel="stylesheet" />
+    <link href="~/TemplatePanel/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" />
+    <!-- Main CSS-->
+    <link href="~/TemplatePanel/css/theme.css" rel="stylesheet" />
 </head>
-<body>
+<body class="animsition">
+    <div class="page-wrapper">
+        <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <img src="~/TemplatePanel/images/icon/logo.png" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                        <li class="active has-sub">
+                            <a href="chart.html">
+                                <i class="fas fa-home"></i>Anasayfa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-book"></i>Defterlerim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="form.html">
+                                <i class="far fa-sticky-note"></i>Günlüklerim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-question-circle"></i>Nasıl Kullanılır
+                            </a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-id-badge"></i>Profilim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-bullhorn"></i>Duyurular
+                            </a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-sign-out-alt"></i>Çıkış Yap
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="~/TemplatePanel/images/icon/logo.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
 
-    <div class="header">
-
+                        <li class="active has-sub">
+                            <a href="chart.html">
+                                <i class="fas fa-home"></i>Anasayfa
+                            </a>
+                        </li>
+                        <li>
+                            <a href="table.html">
+                                <i class="fas fa-book"></i>Defterlerim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="form.html">
+                                <i class="far fa-sticky-note"></i>Günlüklerim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-question-circle"></i>Nasıl Kullanılır
+                            </a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-id-badge"></i> Profilim
+                            </a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-bullhorn"></i>Duyurular
+                            </a>
+                        </li>
+                        <li>
+                            <a href="map.html">
+                                <i class="fas fa-sign-out-alt"></i>Çıkış Yap
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+        <!-- PAGE CONTAINER-->
+        <div class="page-container">
+            <!-- HEADER DESKTOP-->
+            <header class="header-desktop">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                        <div class="header-wrap">
+                            <form class="form-header" action="" method="POST">
+                                <input class="au-input au-input--xl" type="text" name="search" placeholder="Günlük Ara..." />
+                                <button class="au-btn--submit" type="submit">
+                                    <i class="zmdi zmdi-search"></i>
+                                </button>
+                            </form>
+                            <div class="header-button">
+                                <div class="noti-wrap">
+                                    <div class="noti__item js-item-menu">
+                                        <i class="zmdi zmdi-comment-more"></i>
+                                        <div class="mess-dropdown js-dropdown">
+                                            <div class="mess__title">
+                                                <p>Duyurular</p>
+                                            </div>
+                                            <div class="mess__footer">
+                                                <a href="#">Bütün Duyuruları Listele</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="account-wrap">
+                                    <div class="account-item clearfix js-item-menu">
+                                        <div class="image">
+                                            <img src="~/TemplatePanel/images/icon/avatar-01.jpg" alt="John Doe" />
+                                        </div>
+                                        <div class="content">
+                                            <a class="js-acc-btn" href="#">Profilim</a>
+                                        </div>
+                                        <div class="account-dropdown js-dropdown">
+                                            <div class="info clearfix">
+                                                <div class="image">
+                                                    <a href="#">
+                                                        <img src="~/TemplatePanel/images/icon/avatar-01.jpg" alt="John Doe" />
+                                                    </a>
+                                                </div>
+                                                <div class="content">
+                                                    <h5 class="name">
+                                                        <a href="#">Berke Kurnaz</a>
+                                                    </h5>
+                                                    <span class="email">bkoyunberkekurnaz@hotmail.com</span>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__body">
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-account"></i>Profilim
+                                                    </a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-settings"></i>Defterlerim
+                                                    </a>
+                                                </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="#">
+                                                        <i class="zmdi zmdi-money-box"></i>Günlüklerim
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="account-dropdown__footer">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-power"></i>Çıkış Yap
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <!-- HEADER DESKTOP-->
+            <!-- MAIN CONTENT-->
+            <div class="main-content">
+                <div class="section__content section__content--p30">
+                    @RenderBody()
+                </div>
+            </div>
+            <!-- END MAIN CONTENT-->
+            <!-- END PAGE CONTAINER-->
+        </div>
     </div>
 
-    <div class="content">
-        @RenderBody()
-    </div>
 
-    <div class="footer">
-
-    </div>
-
+    <!-- Jquery JS-->
+    <script src="~/TemplatePanel/vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="~/TemplatePanel/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="~/TemplatePanel/vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="~/TemplatePanel/vendor/slick/slick.js"></script>
+    <script src="~/TemplatePanel/vendor/wow/wow.min.js"></script>
+    <script src="~/TemplatePanel/vendor/animsition/animsition.min.js"></script>
+    <script src="~/TemplatePanel/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="~/TemplatePanel/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="~/TemplatePanel/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="~/TemplatePanel/vendor/circle-progress/circle-progress.js"></script>
+    <script src="~/TemplatePanel/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="~/TemplatePanel/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="~/TemplatePanel/vendor/select2/select2.min.js"></script>
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+    <script src="~/TemplatePanel/js/main.js"></script>
 </body>
 </html>
+<!-- end document-->
