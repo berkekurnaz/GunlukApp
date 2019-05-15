@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Articles>
+@{
+    ViewData["Title"] = "Incele";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<h2 class="text-center">Birinci Defter</h2>
+<a href="/PanelDefterler/GunlukEkle/@ViewBag.DiaryId" class="btn btn-info">Yeni Günlük Ekle</a>
+<hr />
+
+@if (Model.Count() > 0)
+{
+    <div class="row">
+
+        <div class="table-responsive table--no-card m-b-30 text-center">
+            <table class="table table-borderless table-striped table-earning">
+                <thead>
+                    <tr>
+                        <th>Günlük </th>
+                        <th>Tarih </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td><a href="/PanelDefterler/GunlukOku/@item.Id">@item.Title</a></td>
+                            <td><a href="/PanelDefterler/GunlukOku/@item.Id">@item.CreatedDate</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+}
+else
+{
+    <div class="card text-center">
+        <div class="card-header">
+            <strong class="card-title">
+                Eklenmiş Günlük Bulunamadı
+            </strong>
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                Şimdiye Kadar Herhangi Bir Günlük Eklememişsin...
+            </p>
+        </div>
+    </div>
+}
+
+

@@ -33,6 +33,7 @@ namespace GunlukApp.WebUI
             services.AddTransient(s => new SuperUserRepository(mongoConnectionString, "DbDiaryApp", "SuperUsers"));
             services.AddTransient(s => new AnnouncementsRepository(mongoConnectionString, "DbDiaryApp", "Announcements"));
 
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSingleton<IFileProvider>(physicalProvider);
             services.AddSession();
             services.AddMvc();

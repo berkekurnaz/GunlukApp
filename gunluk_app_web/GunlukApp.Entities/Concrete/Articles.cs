@@ -32,5 +32,8 @@ namespace GunlukApp.Entities.Concrete
         [BsonElement("DiaryId")]
         public ObjectId DiaryId { get; set; }
 
+        [BsonElement("UserId")]
+        public ObjectId UserId { get; set; }
+
     }
 }

@@ -6,6 +6,7 @@ using GunlukApp.DataAccess.Concrete;
 using GunlukApp.Entities.Concrete;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace GunlukApp.WebUI.Controllers
 {
@@ -92,7 +93,8 @@ namespace GunlukApp.WebUI.Controllers
             var newUser = userRepository.Login(user);
             if (newUser != null)
             {
-                HttpContext.Session.SetString("SessionUsername", user.Username);
+                HttpContext.Session.SetString("SessionUsername", newUser.Username);
+                HttpContext.Session.SetString("SessionUserId", newUser.Id.ToString());
                 return RedirectToAction("Index", "Panel");
             }
             ViewBag.GirisYapmaHataMesaji = "Kullanıcı Adını Veya Şifrenizi Yanlış Girdiniz...";

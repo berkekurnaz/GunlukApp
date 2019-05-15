@@ -1,0 +1,32 @@
+﻿@model Articles
+@{
+    ViewData["Title"] = "GunlukEkle";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">Yeni Günlük Ekleme Ekranı</div>
+    <div class="card-body">
+        <div class="card-title">
+            <h3 class="text-center title-2">Günlük Ekle</h3>
+        </div>
+        <hr>
+        <form asp-controller="PanelDefterler" asp-action="GunlukEkle" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="control-label mb-1">Günlük Başlık</label>
+                <input type="text" asp-for="Title" class="form-control" required>
+            </div>
+            <div class="form-group has-success">
+                <label class="control-label mb-1">Günlük İçerik</label>
+                <textarea class="form-control" asp-for="Content" rows="5" required></textarea>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-lg btn-info btn-block">
+                    <i class="fa fa-plus-circle"></i>&nbsp;
+                    <span id="payment-button-amount">Yeni Günlük Ekle</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
