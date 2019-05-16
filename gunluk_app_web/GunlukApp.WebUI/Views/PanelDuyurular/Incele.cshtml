@@ -1,0 +1,47 @@
+﻿@model Announcements
+@{
+    ViewData["Title"] = "Incele";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <strong class="card-title">Duyurunun Başlığı</strong>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            @Model.Title
+        </p>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="card-header">
+        <strong class="card-title">Eklenme Tarihi</strong>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            @Model.CreatedDate
+        </p>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="card-header">
+        <strong class="card-title">Duyurunun İçeriği</strong>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            @Model.Content
+        </p>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="card-header">
+        <strong class="card-title">İşlemler</strong>
+    </div>
+    <div class="card-body">
+        <center><a href="/PanelDuyurular/Index/" class="btn btn-success"><i class="fa fa-backward" aria-hidden="true"></i> Geriye Dön</a></center>
+    </div>
+</div>

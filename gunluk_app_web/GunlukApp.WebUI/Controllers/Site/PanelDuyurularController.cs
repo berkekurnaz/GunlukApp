@@ -19,14 +19,18 @@ namespace GunlukApp.WebUI.Controllers.Site
 
         public IActionResult Index()
         {
-            // Burada duyurular listelenecek.
-            return View();
+            var list = announcementsRepository.GetAll().OrderByDescending(x => x.Id);
+            return View(list);
         }
 
         public IActionResult Incele(string id)
         {
-            // Burada duyurunun detayları gelecek.
-            return View();
+            var item = announcementsRepository.GetById(id);
+            if (item == null)
+            {
+                return RedirectToAction("Hata", "Panel");
+            }
+            return View(item);
         }
 
     }

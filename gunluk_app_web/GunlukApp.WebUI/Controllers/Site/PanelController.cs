@@ -14,5 +14,10 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View();
         }
 
+        public IActionResult Hata()
+        {
+            return View();
+        }
+
     }
 }
