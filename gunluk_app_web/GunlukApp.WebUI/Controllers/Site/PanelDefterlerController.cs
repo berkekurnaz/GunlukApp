@@ -56,8 +56,25 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View(diary);
         }
 
-        public IActionResult Guncelle()
+        public IActionResult Guncelle(string id)
         {
+            var item = diaryRepository.GetById(id);
+            // item bu kullanıcıya ait değilse boş sayfa döndürsün.
+            // item yoksa hata sayfasına yönlendirme işlemi yap.
+            return View(item);
+        }
+
+        [HttpPost]
+        public IActionResult Guncelle(string id, Diary diary)
+        {
+            var item = diaryRepository.GetById(id);
+            if(ModelState.IsValid)
+            {
+                item.Name = diary.Name;
+                item.Description = diary.Description;
+                diaryRepository.UpdateModel(id, item);
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
@@ -121,8 +138,16 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View(article);
         }
 
-        [HttpPost]
         public IActionResult GunlukSil(string id)
+        {
+            var item = articlesRepository.GetById(id);
+            // item bu kullanıcıya ait değilse boş sayfa döndürsün.
+            // item yoksa hata sayfasına yönlendirme işlemi yap.
+            return View(item);
+        }
+
+        [HttpPost]
+        public IActionResult GunlukSil(string id, IFormCollection collection)
         {
             if (ModelState.IsValid)
             {

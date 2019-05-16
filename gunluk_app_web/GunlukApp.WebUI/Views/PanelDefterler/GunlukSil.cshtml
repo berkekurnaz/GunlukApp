@@ -1,0 +1,22 @@
+﻿@model Articles
+@{
+    ViewData["Title"] = "GunlukSil";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <strong class="card-title">Günlük Silme Ekranı</strong>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            @Model.CreatedDate Tarihinde Eklemiş Olduğun @Model.Title Başlıklı Günlüğü Gerçekten Silmek İstiyor Musun ?
+        </p>
+        <hr />
+        <form asp-controller="PanelDefterler" asp-action="GunlukSil" method="post" enctype="multipart/form-data">
+            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Günlüğü Sil</button>
+        </form>
+
+    </div>
+</div>
+
