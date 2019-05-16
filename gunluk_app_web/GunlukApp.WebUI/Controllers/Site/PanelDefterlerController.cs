@@ -90,5 +90,47 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View();
         }
 
+        public IActionResult GunlukOku(string id)
+        {
+            var item = articlesRepository.GetById(id);
+            // item bu kullanıcıya ait değilse boş sayfa döndürsün.
+            // item yoksa hata sayfasına yönlendirme işlemi yap.
+            return View(item);
+        }
+
+        public IActionResult GunlukDuzenle(string id)
+        {
+            var item = articlesRepository.GetById(id);
+            // item bu kullanıcıya ait değilse boş sayfa döndürsün.
+            // item yoksa hata sayfasına yönlendirme işlemi yap.
+            return View(item);
+        }
+
+        [HttpPost]
+        public IActionResult GunlukDuzenle(string id, Articles article)
+        {
+            var item = articlesRepository.GetById(id);
+            if (ModelState.IsValid)
+            {
+                item.Title = article.Title;
+                item.Content = article.Content;
+                item.CreatedDate = article.CreatedDate;
+                articlesRepository.UpdateModel(id, item);
+                return RedirectToAction("Index");
+            }
+            return View(article);
+        }
+
+        [HttpPost]
+        public IActionResult GunlukSil(string id)
+        {
+            if (ModelState.IsValid)
+            {
+                articlesRepository.DeleteModel(id);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
     }
 }

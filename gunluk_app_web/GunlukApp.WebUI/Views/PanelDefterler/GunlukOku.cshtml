@@ -1,0 +1,80 @@
+﻿@model Articles
+@{
+    ViewData["Title"] = "GunlukOku";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">Başlık</strong>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            @Model.Title
+        </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">Eklenme Tarihi</strong>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            @Model.CreatedDate
+        </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">İçerik</strong>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            @Html.Raw(Model.Content)
+        </p>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <strong class="card-title">İşlemler</strong>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <center><a href="javascript:history.back()" class="btn btn-info"><i class="fa fa-backward"></i> Geriye Dön</a></center>
+            </div>
+            <div class="col-md-4">
+                <center><a href="/PanelDefterler/GunlukDuzenle/@Model.Id" class="btn btn-success"><i class="fa fa-wrench"></i> Günlüğü Düzenle</a></center>
+            </div>
+            <div class="col-md-4">
+                <center><a class="btn btn-danger" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash" aria-hidden="true"></i> Sil</a></center>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Günlük Silme Modalı -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Duyuruyu Silmek İstediğine Emin Misin ?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">Sil Butonuna Tıkladıktan Sonra Bu İşlemi Geri Alamazsınız...</div>
+            <div class="modal-footer">
+                <button class="btn btn-success" type="button" data-dismiss="modal">İptal Et</button>
+                <form asp-controller="PanelDefterler" asp-action="GunlukSil" asp-route-Id="@Model.Id" method="post" enctype="multipart/form-data">
+                    <button type="submit" class="btn btn-danger">Sil</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
