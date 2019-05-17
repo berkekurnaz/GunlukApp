@@ -1,0 +1,32 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Sifre";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">Şifre Güncelleme Ekranı</div>
+    <div class="card-body">
+        <div class="card-title">
+            <h3 class="text-center title-2">Şifre Güncelle</h3>
+        </div>
+        <hr>
+        <form asp-controller="PanelProfil" asp-action="Sifre" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="control-label mb-1">Şimdi Kullandığın Şifre</label>
+                <input type="text" id="oldPassword" name="oldPassword" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label mb-1">Yeni İstediğin Şifre</label>
+                <input type="text" id="newPassword" name="newPassword" class="form-control" required>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-lg btn-info btn-block">
+                    <i class="fa fa-wrench"></i>&nbsp;
+                    <span id="payment-button-amount">Şifreni Güncelle</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

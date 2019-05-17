@@ -1,0 +1,36 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Duzenle";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="card">
+    <div class="card-header">Profil Bilgileri Düzenleme Ekranı</div>
+    <div class="card-body">
+        <div class="card-title">
+            <h3 class="text-center title-2">Profil Düzenle</h3>
+        </div>
+        <hr>
+        <form asp-controller="PanelProfil" asp-action="Duzenle" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="control-label mb-1">Kullanıcı Adı</label>
+                <input type="text" asp-for="Username" class="form-control" value="@Model.Username" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label mb-1">Ad Soyad</label>
+                <input type="text" asp-for="NameSurname" class="form-control" value="@Model.NameSurname" required>
+            </div>
+            <div class="form-group">
+                <label class="control-label mb-1">Mail Adresi</label>
+                <input type="text" asp-for="Email" class="form-control" value="@Model.Email" required>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-lg btn-info btn-block">
+                    <i class="fa fa-wrench"></i>&nbsp;
+                    <span id="payment-button-amount">Profil Bilgilerini Düzenle</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
