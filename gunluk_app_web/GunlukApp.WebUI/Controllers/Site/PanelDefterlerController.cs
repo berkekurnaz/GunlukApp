@@ -33,7 +33,7 @@ namespace GunlukApp.WebUI.Controllers.Site
 
         public IActionResult Incele(string id)
         {
-            var userId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
+            
             ViewBag.DiaryId = id;
             var diaryId = new ObjectId(id);
             var list = articlesRepository.GetAll().FindAll(x => x.DiaryId == diaryId);
@@ -41,6 +41,7 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View(list);
         }
 
+        /* En Fazla 6 Defter Ekleyebilir */
         public IActionResult Ekle()
         {
             return View();
@@ -90,7 +91,6 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View();
         }
 
-        /* Silme İşlemini Yap */
         public IActionResult Sil(string id)
         {
             var userId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
@@ -111,7 +111,12 @@ namespace GunlukApp.WebUI.Controllers.Site
         {
             if(ModelState.IsValid)
             {
-                // Burada günlükler içinde bu deftere ait olan bütün yazılar silinecek.
+                List<Articles> list = articlesRepository.GetAll().FindAll(x => x.DiaryId == new ObjectId(id));
+                for (int i = 0; i < list.Count; i++)
+                {
+                    var item = new ObjectId(list[i].Id.ToString());
+                    articlesRepository.DeleteModel(item.ToString());
+                }
                 diaryRepository.DeleteModel(id);
                 TempData["DefterSilmeMesaji"] = "Defter Ve İçerisindeki Günlükler Başarıyla Silindi.";
                 return RedirectToAction("Index");
@@ -138,8 +143,8 @@ namespace GunlukApp.WebUI.Controllers.Site
                 article.CreatedMonth = DateTime.Now.Month;
                 article.CreatedDay = DateTime.Now.Day;
                 articlesRepository.AddModel(article);
-                // TempData ile mesaj gönder Incele Sayfasına Geri Gitsin.
-                return RedirectToAction("Index");
+                TempData["GunlukEkleMesaji"] = "Yeni Günlük Başarıyla Eklendi.";
+                return RedirectToAction("Incele", new { Id = article.DiaryId });
             }
             return View();
         }
@@ -184,8 +189,8 @@ namespace GunlukApp.WebUI.Controllers.Site
                 item.Content = article.Content;
                 item.CreatedDate = article.CreatedDate;
                 articlesRepository.UpdateModel(id, item);
-                // TempData ile mesaj gönder Incele Sayfasına Geri Gitsin.
-                return RedirectToAction("Index");
+                TempData["GunlukDuzenleMesaji"] = "Günlük Başarıyla Güncellendi.";
+                return RedirectToAction("Incele", new { Id = item.DiaryId });
             }
             return View(article);
         }
@@ -211,7 +216,7 @@ namespace GunlukApp.WebUI.Controllers.Site
             if (ModelState.IsValid)
             {
                 articlesRepository.DeleteModel(id);
-                // TempData ile mesaj gönder Incele Sayfasına Geri Gitsin.
+                TempData["GunlukSilMesaji"] = "Günlük Başarıyla Silindi.";
                 return RedirectToAction("Index");
             }
             return View();

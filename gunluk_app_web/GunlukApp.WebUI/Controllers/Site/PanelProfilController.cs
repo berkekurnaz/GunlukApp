@@ -121,9 +121,12 @@ namespace GunlukApp.WebUI.Controllers.Site
             var item = userRepository.GetById(id);
             if (Image != null)
             {
-                if (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\UserPhotos\\" + item.Photo))
+                if (item.Photo != "Null.png")
                 {
-                    System.IO.File.Delete(Directory.GetCurrentDirectory() + "\\wwwroot\\UserPhotos\\" + item.Photo);
+                    if (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\UserPhotos\\" + item.Photo))
+                    {
+                        System.IO.File.Delete(Directory.GetCurrentDirectory() + "\\wwwroot\\UserPhotos\\" + item.Photo);
+                    }
                 }
                 string newImage = Guid.NewGuid().ToString() + Image.FileName;
                 var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\UserPhotos", newImage);

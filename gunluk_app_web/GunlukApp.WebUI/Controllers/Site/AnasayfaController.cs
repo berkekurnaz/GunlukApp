@@ -71,7 +71,7 @@ namespace GunlukApp.WebUI.Controllers
                 newUser = userRepository.CheckByMail(user);
                 if (newUser == null)
                 {
-                    user.Photo = "Null";
+                    user.Photo = "Null.png";
                     user.CreatedDate = DateTime.Now.ToShortDateString();
                     userRepository.AddModel(user);
                     return RedirectToAction("KayitBasarili");

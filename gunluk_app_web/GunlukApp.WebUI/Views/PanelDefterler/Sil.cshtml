@@ -1,0 +1,23 @@
+﻿@model Diary
+@{
+    ViewData["Title"] = "Sil";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+
+<div class="card text-center">
+    <div class="card-header">
+        <strong class="card-title">Defter Silme Ekranı</strong>
+    </div>
+    <div class="card-body">
+        <p class="card-text">
+            @Model.CreatedDate Tarihinde Eklemiş Olduğun @Model.Name Başlıklı Defteri Gerçekten Silmek İstiyor Musun ?<br />
+            <b>Önemli Not : </b>Bir Defteri Sildiğin Zaman İçerisinde Bulunan Bütün Günlükleride Silmiş Olursun.
+        </p>
+        <hr />
+        <form asp-controller="PanelDefterler" asp-action="Sil" method="post" enctype="multipart/form-data">
+            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i> Defteri Sil</button>
+        </form>
+
+    </div>
+</div>
+

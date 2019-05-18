@@ -9,6 +9,20 @@
 <a href="/PanelDefterler/Guncelle/@ViewBag.DiaryId" class="btn btn-success float-right"><i class="fa fa-wrench"></i> Defteri Düzenle</a>
 <hr />
 
+@if (TempData["GunlukEkleMesaji"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["GunlukEkleMesaji"]
+    </div>
+}
+@if (TempData["GunlukDuzenleMesaji"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["GunlukDuzenleMesaji"]
+    </div>
+}
+
+
 @if (Model.Count() > 0)
 {
     <div class="row">
