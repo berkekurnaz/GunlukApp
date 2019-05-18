@@ -7,6 +7,25 @@
 <h2 class="text-center">Profil</h2>
 <hr />
 
+@if (TempData["ProfilDuzenlemeMesaji"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["ProfilDuzenlemeMesaji"]
+    </div>
+}
+@if (TempData["SifreDuzenlemeMesaji"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["SifreDuzenlemeMesaji"]
+    </div>
+}
+@if (TempData["FotografDuzenlemeMesaji"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["FotografDuzenlemeMesaji"]
+    </div>
+}
+
 <div class="row">
     <div class="col-md-4">
         <div class="card">

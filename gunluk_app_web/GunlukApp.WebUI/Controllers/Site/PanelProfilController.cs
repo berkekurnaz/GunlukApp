@@ -40,7 +40,6 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View(item);
         }
 
-        /* ViewBag İle Mesaj Gönderme İşlemini Yap */
         [HttpPost]
         public IActionResult Duzenle(string id, User user)
         {
@@ -51,6 +50,7 @@ namespace GunlukApp.WebUI.Controllers.Site
                 item.NameSurname = user.NameSurname;
                 item.Email = user.Email;
                 userRepository.UpdateModel(id, item);
+                TempData["ProfilDuzenlemeMesaji"] = "Profil Bilgilerin Başarıyla Güncellendi.";
                 return RedirectToAction("Index");
             }
             return View();
@@ -67,7 +67,7 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View(item);
         }
 
-        /* ViewBag İle Mesaj Gönderme İşlemini Yap */
+        
         [HttpPost]
         public IActionResult Sifre(string id, string oldPassword, string newPassword)
         {
@@ -78,7 +78,12 @@ namespace GunlukApp.WebUI.Controllers.Site
                 {
                     item.Password = newPassword;
                     userRepository.UpdateModel(id, item);
+                    TempData["SifreDuzenlemeMesaji"] = "Şifren Başarıyla Güncellendi.";
                     return RedirectToAction("Index");
+                }
+                else
+                {
+                    TempData["SifreDuzenlemeHataMesaji"] = "Lütfen Önceki Şifrenizi Doğru Giriniz.";
                 }
             }
             return View();
@@ -95,8 +100,7 @@ namespace GunlukApp.WebUI.Controllers.Site
             }
             return View(item);
         }
-
-        /* ViewBag İle Mesaj Gönderme İşlemini Yap */
+        
         [HttpPost]
         public async Task<IActionResult> Fotograf(string id, User user, IFormFile Image)
         {
@@ -116,6 +120,7 @@ namespace GunlukApp.WebUI.Controllers.Site
                 item.Photo = newImage;
             }
             userRepository.UpdateModel(id, item);
+            TempData["FotografDuzenlemeMesaji"] = "Profil Fotoğrafın Başarıyla Güncellendi.";
             return RedirectToAction("Index");
         }
 
