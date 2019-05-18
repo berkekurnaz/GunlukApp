@@ -1,0 +1,59 @@
+﻿@model User
+@{
+    ViewData["Title"] = "Fotograf";
+    Layout = "~/Views/Shared/_LayoutPanel.cshtml";
+}
+<style>
+    input[type="file"] {
+        cursor: pointer !Important;
+        font: 300 14px sans-serif;
+        color: #9e9e9e;
+    }
+
+        input[type="file"]::-webkit-file-upload-button {
+            font: 300 14px sans-serif;
+            background: #009688;
+            border: 0;
+            padding: 12px 25px;
+            cursor: pointer;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        input[type="file"]::-ms-browse {
+            font: 300 14px 'Roboto', sans-serif;
+            background: #009688;
+            border: 0;
+            padding: 12px 25px;
+            cursor: pointer;
+            color: #fff;
+            text-transform: uppercase;
+        }
+</style>
+
+<div class="card">
+    <div class="card-header">Fotoğraf Güncelleme Ekranı</div>
+    <div class="card-body">
+        <div class="card-title">
+            <h3 class="text-center title-2">Fotoğraf Güncelle</h3>
+        </div>
+        <hr>
+        <form asp-controller="PanelProfil" asp-action="Fotograf" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label class="control-label mb-1">Aktif Profil Fotoğrafı</label>
+                <center><img src="~/UserPhotos/@Model.Photo" width="250" /></center>
+            </div>
+            <div class="form-group">
+                <label class="control-label mb-1">Yeni Profil Fotoğrafı</label>
+                <input class="form-control" type="file" name="Image" />
+            </div>
+            <div>
+                <button type="submit" class="btn btn-lg btn-info btn-block">
+                    <i class="fa fa-wrench"></i>&nbsp;
+                    <span id="payment-button-amount">Fotoğraf Güncelle</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+

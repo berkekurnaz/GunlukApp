@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using GunlukApp.DataAccess.Concrete;
@@ -39,6 +40,7 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View(item);
         }
 
+        /* ViewBag İle Mesaj Gönderme İşlemini Yap */
         [HttpPost]
         public IActionResult Duzenle(string id, User user)
         {
@@ -65,6 +67,7 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View(item);
         }
 
+        /* ViewBag İle Mesaj Gönderme İşlemini Yap */
         [HttpPost]
         public IActionResult Sifre(string id, string oldPassword, string newPassword)
         {
@@ -91,6 +94,29 @@ namespace GunlukApp.WebUI.Controllers.Site
                 return RedirectToAction("Hata", "Panel");
             }
             return View(item);
+        }
+
+        /* ViewBag İle Mesaj Gönderme İşlemini Yap */
+        [HttpPost]
+        public async Task<IActionResult> Fotograf(string id, User user, IFormFile Image)
+        {
+            var item = userRepository.GetById(id);
+            if (Image != null)
+            {
+                if (System.IO.File.Exists(Directory.GetCurrentDirectory() + "\\wwwroot\\UserPhotos\\" + item.Photo))
+                {
+                    System.IO.File.Delete(Directory.GetCurrentDirectory() + "\\wwwroot\\UserPhotos\\" + item.Photo);
+                }
+                string newImage = Guid.NewGuid().ToString() + Image.FileName;
+                var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\UserPhotos", newImage);
+                using (var stream = new FileStream(path, FileMode.Create))
+                {
+                    await Image.CopyToAsync(stream);
+                }
+                item.Photo = newImage;
+            }
+            userRepository.UpdateModel(id, item);
+            return RedirectToAction("Index");
         }
 
     }
