@@ -96,7 +96,6 @@ namespace GunlukApp.WebUI.Controllers
                 HttpContext.Session.SetString("SessionUserId", newUser.Id.ToString());
                 HttpContext.Session.SetString("SessionUsername", newUser.Username);
                 HttpContext.Session.SetString("SessionNameSurname", newUser.NameSurname);
-                HttpContext.Session.SetString("SessionPhoto", newUser.Photo);
                 return RedirectToAction("Index", "Panel");
             }
             ViewBag.GirisYapmaHataMesaji = "Kullanıcı Adını Veya Şifrenizi Yanlış Girdiniz...";

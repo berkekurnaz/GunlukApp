@@ -5,12 +5,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using GunlukApp.DataAccess.Concrete;
 using GunlukApp.Entities.Concrete;
+using GunlukApp.WebUI.Filter;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 
 namespace GunlukApp.WebUI.Controllers.Site
 {
+    [UserAuthFilter]
     public class PanelProfilController : Controller
     {
 
@@ -31,11 +33,15 @@ namespace GunlukApp.WebUI.Controllers.Site
 
         public IActionResult Duzenle(string id)
         {
+            var userId = HttpContext.Session.GetString("SessionUserId");
             var item = userRepository.GetById(id);
-            // Burada Kullanıcı Id Kendi Id simi diye kontrol edilecek.
             if (item == null)
             {
                 return RedirectToAction("Hata", "Panel");
+            }
+            if(userId != id)
+            {
+                return RedirectToAction("Hata", "Panel"); // Kullanıcı Kontrolü
             }
             return View(item);
         }
@@ -58,11 +64,15 @@ namespace GunlukApp.WebUI.Controllers.Site
 
         public IActionResult Sifre(string id)
         {
+            var userId = HttpContext.Session.GetString("SessionUserId");
             var item = userRepository.GetById(id);
-            // Burada Kullanıcı Id Kendi Id simi diye kontrol edilecek.
             if (item == null)
             {
                 return RedirectToAction("Hata", "Panel");
+            }
+            if (userId != id)
+            {
+                return RedirectToAction("Hata", "Panel"); // Kullanıcı Kontrolü
             }
             return View(item);
         }
@@ -89,14 +99,18 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View();
         }
 
-        /* Fotograf Duzenleme Islemi Yapilacak */
+
         public IActionResult Fotograf(string id)
         {
+            var userId = HttpContext.Session.GetString("SessionUserId");
             var item = userRepository.GetById(id);
-            // Burada Kullanıcı Id Kendi Id simi diye kontrol edilecek.
             if (item == null)
             {
                 return RedirectToAction("Hata", "Panel");
+            }
+            if (userId != id)
+            {
+                return RedirectToAction("Hata", "Panel"); // Kullanıcı Kontrolü
             }
             return View(item);
         }

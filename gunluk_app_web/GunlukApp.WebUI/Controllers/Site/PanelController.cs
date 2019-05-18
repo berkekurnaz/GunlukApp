@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GunlukApp.DataAccess.Concrete;
+using GunlukApp.WebUI.Filter;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Bson;
 
 namespace GunlukApp.WebUI.Controllers.Site
 {
+    [UserAuthFilter]
     public class PanelController : Controller
     {
 
@@ -24,11 +27,13 @@ namespace GunlukApp.WebUI.Controllers.Site
 
         public IActionResult Index()
         {
-            ViewBag.DefterSayisi = diaryRepository.GetAll().Count;
-            ViewBag.GunlukSayisi = articlesRepository.GetAll().Count;
+            var userId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
+
+            ViewBag.DefterSayisi = diaryRepository.GetAll().FindAll(x => x.UserId == userId).Count;
+            ViewBag.GunlukSayisi = articlesRepository.GetAll().FindAll(x => x.UserId == userId).Count;
             ViewBag.DuyuruSayisi = announcementsRepository.GetAll().Count;
 
-            ViewBag.KullaniciAdi = HttpContext.Session.GetString("SessionNameSurname");
+            ViewBag.KullaniciIsmi = HttpContext.Session.GetString("SessionNameSurname");
 
             return View();
         }

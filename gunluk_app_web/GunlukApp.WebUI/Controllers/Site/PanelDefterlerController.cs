@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using GunlukApp.DataAccess.Concrete;
 using GunlukApp.Entities.Concrete;
+using GunlukApp.WebUI.Filter;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 
 namespace GunlukApp.WebUI.Controllers.Site
 {
+    [UserAuthFilter]
     public class PanelDefterlerController : Controller
     {
 
@@ -29,12 +31,13 @@ namespace GunlukApp.WebUI.Controllers.Site
             return View(list);
         }
 
-        /* Burada O Gunluge Ait Butun Gunlukler Listelenecek */
         public IActionResult Incele(string id)
         {
+            var userId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
             ViewBag.DiaryId = id;
             var diaryId = new ObjectId(id);
             var list = articlesRepository.GetAll().FindAll(x => x.DiaryId == diaryId);
+            // O defterin içindeki günlükler listelenirken bir kontrol yap.
             return View(list);
         }
 
@@ -51,6 +54,7 @@ namespace GunlukApp.WebUI.Controllers.Site
                 diary.UserId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
                 diary.CreatedDate = DateTime.Now.ToShortDateString();
                 diaryRepository.AddModel(diary);
+                TempData["DefterEklemeMesaji"] = "Yeni Bir Defter Başarıyla Eklendi.";
                 return RedirectToAction("Index");
             }
             return View(diary);
@@ -58,9 +62,16 @@ namespace GunlukApp.WebUI.Controllers.Site
 
         public IActionResult Guncelle(string id)
         {
+            var userId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
             var item = diaryRepository.GetById(id);
-            // item bu kullanıcıya ait değilse boş sayfa döndürsün.
-            // item yoksa hata sayfasına yönlendirme işlemi yap.
+            if (item == null)
+            {
+                return RedirectToAction("Hata", "Panel");
+            }
+            if (item.UserId != userId)
+            {
+                return RedirectToAction("Hata", "Panel"); // Kullanıcı Kontrolü
+            }
             return View(item);
         }
 
@@ -73,13 +84,38 @@ namespace GunlukApp.WebUI.Controllers.Site
                 item.Name = diary.Name;
                 item.Description = diary.Description;
                 diaryRepository.UpdateModel(id, item);
+                TempData["DefterGuncellemeMesaji"] = "Defter Başarıyla Güncellendi.";
                 return RedirectToAction("Index");
             }
             return View();
         }
 
-        public IActionResult Sil()
+        /* Silme İşlemini Yap */
+        public IActionResult Sil(string id)
         {
+            var userId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
+            var item = diaryRepository.GetById(id);
+            if (item == null)
+            {
+                return RedirectToAction("Hata", "Panel");
+            }
+            if (item.UserId != userId)
+            {
+                return RedirectToAction("Hata", "Panel"); // Kullanıcı Kontrolü
+            }
+            return View(item);
+        }
+
+        [HttpPost]
+        public IActionResult Sil(string id, IFormCollection collection)
+        {
+            if(ModelState.IsValid)
+            {
+                // Burada günlükler içinde bu deftere ait olan bütün yazılar silinecek.
+                diaryRepository.DeleteModel(id);
+                TempData["DefterSilmeMesaji"] = "Defter Ve İçerisindeki Günlükler Başarıyla Silindi.";
+                return RedirectToAction("Index");
+            }
             return View();
         }
 
@@ -102,6 +138,7 @@ namespace GunlukApp.WebUI.Controllers.Site
                 article.CreatedMonth = DateTime.Now.Month;
                 article.CreatedDay = DateTime.Now.Day;
                 articlesRepository.AddModel(article);
+                // TempData ile mesaj gönder Incele Sayfasına Geri Gitsin.
                 return RedirectToAction("Index");
             }
             return View();
@@ -109,17 +146,31 @@ namespace GunlukApp.WebUI.Controllers.Site
 
         public IActionResult GunlukOku(string id)
         {
+            var userId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
             var item = articlesRepository.GetById(id);
-            // item bu kullanıcıya ait değilse boş sayfa döndürsün.
-            // item yoksa hata sayfasına yönlendirme işlemi yap.
+            if (item == null)
+            {
+                return RedirectToAction("Hata", "Panel");
+            }
+            if (item.UserId != userId)
+            {
+                return RedirectToAction("Hata", "Panel"); // Kullanıcı Kontrolü
+            }
             return View(item);
         }
 
         public IActionResult GunlukDuzenle(string id)
         {
+            var userId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
             var item = articlesRepository.GetById(id);
-            // item bu kullanıcıya ait değilse boş sayfa döndürsün.
-            // item yoksa hata sayfasına yönlendirme işlemi yap.
+            if (item == null)
+            {
+                return RedirectToAction("Hata", "Panel");
+            }
+            if (item.UserId != userId)
+            {
+                return RedirectToAction("Hata", "Panel"); // Kullanıcı Kontrolü
+            }
             return View(item);
         }
 
@@ -133,6 +184,7 @@ namespace GunlukApp.WebUI.Controllers.Site
                 item.Content = article.Content;
                 item.CreatedDate = article.CreatedDate;
                 articlesRepository.UpdateModel(id, item);
+                // TempData ile mesaj gönder Incele Sayfasına Geri Gitsin.
                 return RedirectToAction("Index");
             }
             return View(article);
@@ -140,9 +192,16 @@ namespace GunlukApp.WebUI.Controllers.Site
 
         public IActionResult GunlukSil(string id)
         {
+            var userId = new ObjectId(HttpContext.Session.GetString("SessionUserId").ToString());
             var item = articlesRepository.GetById(id);
-            // item bu kullanıcıya ait değilse boş sayfa döndürsün.
-            // item yoksa hata sayfasına yönlendirme işlemi yap.
+            if (item == null)
+            {
+                return RedirectToAction("Hata", "Panel");
+            }
+            if (item.UserId != userId)
+            {
+                return RedirectToAction("Hata", "Panel"); // Kullanıcı Kontrolü
+            }
             return View(item);
         }
 
@@ -152,6 +211,7 @@ namespace GunlukApp.WebUI.Controllers.Site
             if (ModelState.IsValid)
             {
                 articlesRepository.DeleteModel(id);
+                // TempData ile mesaj gönder Incele Sayfasına Geri Gitsin.
                 return RedirectToAction("Index");
             }
             return View();

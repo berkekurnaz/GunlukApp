@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GunlukApp.DataAccess.Concrete;
+using GunlukApp.WebUI.Filter;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GunlukApp.WebUI.Controllers.Site
 {
+    [UserAuthFilter]
     public class PanelDuyurularController : Controller
     {
 
