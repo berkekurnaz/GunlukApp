@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-<h2 class="text-center">Defterler Listesi</h2>
+<h2 class="text-center animated bounce">Defterler Listesi</h2>
 <a href="/PanelDefterler/Ekle/" class="btn btn-info"><i class="fa fa-plus-circle"></i> Yeni Defter Ekle</a>
 <hr />
 
@@ -40,7 +40,7 @@
         @foreach (var item in Model)
         {
             <div class="col-md-4">
-                <div class="card">
+                <div class="card animated pulse">
                     <div class="card-header text-center">
                         <strong class="card-title mb-3">@item.Name</strong>
                     </div>
