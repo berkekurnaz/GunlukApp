@@ -4,8 +4,10 @@
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-<script src="https://cdn.ckeditor.com/ckeditor5/12.1.0/classic/ckeditor.js"></script>
-<script src="https://cdn.ckeditor.com/ckeditor5/12.1.0/classic/translations/tr.js"></script>
+<script src="~/TemplatePanel/js/ckeditor.js"></script>
+<script src="~/TemplatePanel/js/tr.js"></script>
+<link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+<script src="~/TemplatePanel/js/jquery-3.3.1.slim.min.js"></script>
 
 <style>
     /*Textbox*/
@@ -23,11 +25,11 @@
         <form asp-controller="PanelDefterler" asp-action="GunlukDuzenle" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label class="control-label mb-1">Günlük Başlık</label>
-                <input type="text" asp-for="Title" class="form-control" value="@Model.Title" required>
+                <input type="text" asp-for="Title" maxlength="50" class="form-control" value="@Model.Title" required>
             </div>
             <div class="form-group">
                 <label class="control-label mb-1">Eklenme Tarihi</label>
-                <input type="text" asp-for="CreatedDate" class="form-control" value="@Model.CreatedDate" required>
+                <input asp-for="CreatedDate" value="@Model.CreatedDate" readonly />
             </div>
             <div class="form-group has-success">
                 <label class="control-label mb-1">Günlük İçerik</label>
@@ -55,3 +57,9 @@
         });
 </script>
 
+<script src="~/TemplatePanel/js/gijgo.min.js"></script>
+<script>
+    $('#CreatedDate').datepicker({
+        uiLibrary: 'bootstrap4'
+    });
+</script>

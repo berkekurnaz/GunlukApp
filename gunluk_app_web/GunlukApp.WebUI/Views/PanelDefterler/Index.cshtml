@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Diary>
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Panel Defterler";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
@@ -32,6 +32,12 @@
         @TempData["GunlukSilMesaji"]
     </div>
 }
+@if (TempData["DefterSayiHataMesaji"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        @TempData["DefterSayiHataMesaji"]
+    </div>
+}
 
 @if (Model.Count() > 0)
 {
@@ -42,7 +48,16 @@
             <div class="col-md-4">
                 <div class="card animated pulse">
                     <div class="card-header text-center">
-                        <strong class="card-title mb-3">@item.Name</strong>
+                        <strong class="card-title mb-3">
+                            @if (item.Name.Length > 30)
+                            {
+                                @item.Name.Substring(0, 30)<span>...</span>
+                            }
+                            else
+                            {
+                                @item.Name
+                            }
+                        </strong>
                     </div>
                     <div class="card-body">
                         <div class="mx-auto d-block">

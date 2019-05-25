@@ -14,11 +14,11 @@
         <form asp-controller="PanelDefterler" asp-action="Guncelle" method="post" enctype="multipart/form-data">
             <div class="form-group animated fadeIn">
                 <label class="control-label mb-1">Defterin Adı</label>
-                <input type="text" asp-for="Name" class="form-control" value="@Model.Name" required>
+                <input type="text" asp-for="Name" class="form-control" maxlength="30" value="@Model.Name" required>
             </div>
             <div class="form-group has-success animated fadeIn">
                 <label class="control-label mb-1">Defterin Açıklaması</label>
-                <textarea class="form-control" asp-for="Description" rows="5" required>@Model.Description</textarea>
+                <textarea class="form-control" asp-for="Description" rows="5" maxlength="200" required>@Model.Description</textarea>
             </div>
             <div>
                 <button type="submit" class="btn btn-lg btn-info btn-block animated fadeIn">

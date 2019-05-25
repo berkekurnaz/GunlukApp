@@ -7,13 +7,14 @@
   <ItemGroup>
     <Folder Include="Controllers\Api\" />
     <Folder Include="Models\" />
-    <Folder Include="wwwroot\TemplatePanel\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
     <PackageReference Include="MongoDB.Driver" Version="2.8.0" />
+    <PackageReference Include="PagedList.Core.Mvc" Version="1.2.0" />
+    <PackageReference Include="ReflectionIT.Mvc.Paging" Version="2.4.0" />
   </ItemGroup>
 
   <ItemGroup>

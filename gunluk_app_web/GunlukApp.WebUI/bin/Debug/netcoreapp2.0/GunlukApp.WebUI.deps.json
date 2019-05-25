@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "f6ca98c20a313eda7ed8c86f7803336e11c676b9"
+    "signature": "c7a1eec511983c44696c5eccfcc60d80f92c632c"
   },
   "compilationOptions": {
     "defines": [
@@ -28,7 +28,9 @@
           "Microsoft.AspNetCore.All": "2.0.8",
           "Microsoft.NETCore.App": "2.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.3",
-          "MongoDB.Driver": "2.8.0"
+          "MongoDB.Driver": "2.8.0",
+          "PagedList.Core.Mvc": "1.2.0",
+          "ReflectionIT.Mvc.Paging": "2.4.0"
         },
         "runtime": {
           "GunlukApp.WebUI.dll": {}
@@ -2563,6 +2565,44 @@
         },
         "compile": {
           "lib/netstandard1.3/NuGet.Frameworks.dll": {}
+        }
+      },
+      "PagedList.Core/1.17.4": {
+        "runtime": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {}
+        },
+        "compile": {
+          "lib/netcoreapp1.0/PagedList.Core.dll": {}
+        }
+      },
+      "PagedList.Core.Mvc/1.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.ViewFeatures": "2.0.4",
+          "Microsoft.AspNetCore.Razor.Runtime": "2.0.3",
+          "PagedList.Core": "1.17.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/PagedList.Core.Mvc.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/PagedList.Core.Mvc.dll": {}
+        }
+      },
+      "ReflectionIT.Analyzer/1.1.0": {},
+      "ReflectionIT.Mvc.Paging/2.4.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Core": "2.0.4",
+          "Microsoft.AspNetCore.Mvc.Razor": "2.0.4",
+          "Microsoft.EntityFrameworkCore.Relational": "2.0.3",
+          "Microsoft.Extensions.FileProviders.Embedded": "2.0.1",
+          "Microsoft.Extensions.Options": "2.0.2",
+          "ReflectionIT.Analyzer": "1.1.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/ReflectionIT.Mvc.Paging.dll": {}
         }
       },
       "Remotion.Linq/2.1.1": {
@@ -5665,6 +5705,34 @@
       "sha512": "sha512-WCkN68c8q+USG+Ot1MmBDH+9DUo5dk7UB0QDMiwCYhrH7ZoFLKFGGNzJ8C3LTR1DvB1LW9BOxKeznnZznKiCTA==",
       "path": "nuget.frameworks/4.0.0",
       "hashPath": "nuget.frameworks.4.0.0.nupkg.sha512"
+    },
+    "PagedList.Core/1.17.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-VvtRPtzytU+r9QVmbqZkWMf3oRPGMdGXHBD2eZDuY5Mfkkdl5cJOCEe/Wnmgrwu73UbRTQe4vu40K4rfg/FkUw==",
+      "path": "pagedlist.core/1.17.4",
+      "hashPath": "pagedlist.core.1.17.4.nupkg.sha512"
+    },
+    "PagedList.Core.Mvc/1.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MiXdEgIiK0HJ2p+SiwjdSLguwsntTn09hTILnnIcOwKT1GrTzpJHVzyWw36KHb9kzCm9Loz16OfHhJnJlugdqg==",
+      "path": "pagedlist.core.mvc/1.2.0",
+      "hashPath": "pagedlist.core.mvc.1.2.0.nupkg.sha512"
+    },
+    "ReflectionIT.Analyzer/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-9ghL2hDLhWnAO+21dCqHTbu8FKuewArWwT7P5XFPhWFonIgI0/3Fu1IusZ2eH9wxtXQ+ei4O35kfd92MSJ/bwg==",
+      "path": "reflectionit.analyzer/1.1.0",
+      "hashPath": "reflectionit.analyzer.1.1.0.nupkg.sha512"
+    },
+    "ReflectionIT.Mvc.Paging/2.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5yYpGKssVkmOhiJZNlZj6xspNh2ICCvbLuSve6OgdUYqStqy4dk56A/k9J7mvB/38s8qKAicLG3q08r8h9EOUA==",
+      "path": "reflectionit.mvc.paging/2.4.0",
+      "hashPath": "reflectionit.mvc.paging.2.4.0.nupkg.sha512"
     },
     "Remotion.Linq/2.1.1": {
       "type": "package",

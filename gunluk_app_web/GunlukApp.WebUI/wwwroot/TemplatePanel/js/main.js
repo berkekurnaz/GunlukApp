@@ -1255,7 +1255,7 @@
 
   
   
-  })(jQuery);
+
 (function ($) {
   // USE STRICT
   "use strict";

@@ -1,4 +1,6 @@
-﻿
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +21,7 @@
     <link href="~/TemplatePanel/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" />
     <!-- Vendor CSS-->
     <!-- Fade Animation : <link href="~/TemplatePanel/vendor/animsition/animsition.min.css" rel="stylesheet" /> -->
+
     <link href="~/TemplatePanel/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" />
     <link href="~/TemplatePanel/vendor/wow/animate.css" rel="stylesheet" />
     <link href="~/TemplatePanel/vendor/css-hamburgers/hamburgers.css" rel="stylesheet" />
@@ -37,8 +40,8 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
-                            <img src="~/TemplatePanel/images/icon/logo.png" alt="CoolAdmin" />
+                        <a class="logo" href="/Panel/Index/">
+                            <img src="~/TemplatePanel/images/icon/logogunuyaz.png" alt="Günü yaz" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -51,33 +54,33 @@
             <nav class="navbar-mobile">
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
-                        <li class="active has-sub">
-                            <a href="chart.html">
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Panel" ? "active has sub" : "")">
+                            <a href="/Panel/Index/">
                                 <i class="fas fa-home"></i>Anasayfa
                             </a>
                         </li>
-                        <li>
-                            <a href="table.html">
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "PanelDefterler" ? "active has sub" : "")">
+                            <a href="/PanelDefterler/Index/">
                                 <i class="fas fa-book"></i>Defterlerim
                             </a>
                         </li>
-                        <li>
-                            <a href="#">
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "NasilKullanilir" ? "active has sub" : "")">
+                            <a href="/Panel/NasilKullanilir/">
                                 <i class="fas fa-question-circle"></i>Nasıl Kullanılır
                             </a>
                         </li>
-                        <li>
-                            <a href="/PanelDefterler/Index/">
-                                <i class="fas fa-id-badge"></i>Profilim
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "PanelProfil" ? "active has sub" : "")">
+                            <a href="/PanelProfil/Index/">
+                                <i class="fas fa-id-badge"></i> Profilim
                             </a>
                         </li>
-                        <li>
-                            <a href="map.html">
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "PanelDuyurular" ? "active has sub" : "")">
+                            <a href="/PanelDuyurular/Index/">
                                 <i class="fas fa-bullhorn"></i>Duyurular
                             </a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="/Anasayfa/CikisYap/">
                                 <i class="fas fa-sign-out-alt"></i>Çıkış Yap
                             </a>
                         </li>
@@ -89,41 +92,40 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
-                    <img src="~/TemplatePanel/images/icon/logo.png" alt="Cool Admin" />
+                <a href="/Panel/Index/">
+                    <img src="~/TemplatePanel/images/icon/logogunuyaz.png" alt="Günü yaz" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
-
-                        <li class="active has-sub">
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Panel" ? "active has sub" : "")">
                             <a href="/Panel/Index/">
                                 <i class="fas fa-home"></i>Anasayfa
                             </a>
                         </li>
-                        <li>
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "PanelDefterler" ? "active has sub" : "")">
                             <a href="/PanelDefterler/Index/">
                                 <i class="fas fa-book"></i>Defterlerim
                             </a>
                         </li>
-                        <li>
+                        <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "NasilKullanilir" ? "active has sub" : "")">
                             <a href="/Panel/NasilKullanilir/">
                                 <i class="fas fa-question-circle"></i>Nasıl Kullanılır
                             </a>
                         </li>
-                        <li>
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "PanelProfil" ? "active has sub" : "")">
                             <a href="/PanelProfil/Index/">
                                 <i class="fas fa-id-badge"></i> Profilim
                             </a>
                         </li>
-                        <li>
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "PanelDuyurular" ? "active has sub" : "")">
                             <a href="/PanelDuyurular/Index/">
                                 <i class="fas fa-bullhorn"></i>Duyurular
                             </a>
                         </li>
                         <li>
-                            <a href="map.html">
+                            <a href="/Anasayfa/CikisYap/">
                                 <i class="fas fa-sign-out-alt"></i>Çıkış Yap
                             </a>
                         </li>
@@ -154,7 +156,7 @@
                                                 <p>Duyurular</p>
                                             </div>
                                             <div class="mess__footer">
-                                                <a href="#">Bütün Duyuruları Listele</a>
+                                                <a href="/PanelDuyurular/Index/">Bütün Duyuruları Listele</a>
                                             </div>
                                         </div>
                                     </div>
@@ -162,23 +164,23 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="~/UserPhotosdeneme" />
+                                            <img src="~/UserPhotos/@HttpContextAccessor.HttpContext.Session.GetString("SessionUserPhoto")" />
                                         </div>
                                         <div class="content">
-                                            <a class="js-acc-btn" href="#">deneme</a>
+                                            <a class="js-acc-btn" href="#">@HttpContextAccessor.HttpContext.Session.GetString("SessionUserNameSurname")</a>
                                         </div>
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="~/UserPhotos/deneme" />
+                                                        <img src="~/UserPhotos/@HttpContextAccessor.HttpContext.Session.GetString("SessionUserPhoto")" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
-                                                        <a href="#">deneme</a>
+                                                        <a href="#">@HttpContextAccessor.HttpContext.Session.GetString("SessionUserNameSurname")</a>
                                                     </h5>
-                                                    <span class="email">bkoyunberkekurnaz@hotmail.com</span>
+                                                    <span class="email">@HttpContextAccessor.HttpContext.Session.GetString("SessionUserMail")</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
@@ -193,13 +195,13 @@
                                                     </a>
                                                 </div>
                                                 <div class="account-dropdown__item">
-                                                    <a href="/Anasayfa/CikisYap/">
-                                                        <i class="zmdi zmdi-money-box"></i>Günlüklerim
+                                                    <a href="/Panel/Istatistikler/">
+                                                        <i class="zmdi zmdi-money-box"></i>İstatistikler
                                                     </a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
+                                                <a href="/Anasayfa/CikisYap/">
                                                     <i class="zmdi zmdi-power"></i>Çıkış Yap
                                                 </a>
                                             </div>
@@ -222,6 +224,7 @@
             <!-- END PAGE CONTAINER-->
         </div>
     </div>
+
 
 
     <!-- Jquery JS-->

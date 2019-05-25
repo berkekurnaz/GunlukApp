@@ -1,10 +1,13 @@
-﻿@model IEnumerable<Articles>
+﻿@model ReflectionIT.Mvc.Paging.IPagingList<Articles>
+@using ReflectionIT.Mvc.Paging
+@addTagHelper *,ReflectionIT.Mvc.Paging
+
 @{
     ViewData["Title"] = "Incele";
     Layout = "~/Views/Shared/_LayoutPanel.cshtml";
 }
 
-<h2 class="text-center animated fadeIn">Birinci Defter</h2>
+<h2 class="text-center animated fadeIn">@ViewBag.DiaryName</h2>
 <a href="/PanelDefterler/GunlukEkle/@ViewBag.DiaryId" class="btn btn-info animated fadeIn"><i class="fa fa-sticky-note"></i> Yeni Günlük Ekle</a>
 <a href="/PanelDefterler/Guncelle/@ViewBag.DiaryId" class="btn btn-success float-right animated fadeIn"><i class="fa fa-wrench"></i> Defteri Düzenle</a>
 <hr />
@@ -39,14 +42,31 @@
                     @foreach (var item in Model)
                     {
                         <tr>
-                            <td><a href="/PanelDefterler/GunlukOku/@item.Id">@item.Title</a></td>
-                            <td><a href="/PanelDefterler/GunlukOku/@item.Id">@item.CreatedDate</a></td>
+                            <td>
+                                <a href="/PanelDefterler/GunlukOku/@item.Id">
+                                    @if (item.Title.Length > 30)
+                                    {
+                                        @item.Title.Substring(0, 30)<span>...</span>
+                                    }
+                                    else
+                                    {
+                                        @item.Title
+                                    }
+                                </a>
+                            </td>
+                            <td><a href="/PanelDefterler/GunlukOku/@item.Id" class="btn btn-success"><i class="fa fa-search" aria-hidden="true"></i> Oku</a></td>
                         </tr>
                     }
                 </tbody>
             </table>
         </div>
-
+        <div class="container text-center">
+            <br />
+            @for (var p = 1; p <= Model.PageCount; p++)
+            {
+                <a href="@Url.Action("Incele", new { sayfa = p })" class="btn btn-info page-item">@p</a>
+            }
+        </div>
     </div>
 }
 else

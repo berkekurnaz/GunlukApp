@@ -33,7 +33,7 @@ namespace GunlukApp.WebUI.Controllers.Site
             ViewBag.GunlukSayisi = articlesRepository.GetAll().FindAll(x => x.UserId == userId).Count;
             ViewBag.DuyuruSayisi = announcementsRepository.GetAll().Count;
 
-            ViewBag.KullaniciIsmi = HttpContext.Session.GetString("SessionNameSurname");
+            ViewBag.KullaniciIsmi = HttpContext.Session.GetString("SessionUserNameSurname");
 
             return View();
         }

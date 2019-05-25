@@ -94,12 +94,21 @@ namespace GunlukApp.WebUI.Controllers
             if (newUser != null)
             {
                 HttpContext.Session.SetString("SessionUserId", newUser.Id.ToString());
-                HttpContext.Session.SetString("SessionUsername", newUser.Username);
-                HttpContext.Session.SetString("SessionNameSurname", newUser.NameSurname);
+                HttpContext.Session.SetString("SessionUserUsername", newUser.Username);
+                HttpContext.Session.SetString("SessionUserNameSurname", newUser.NameSurname);
+                HttpContext.Session.SetString("SessionUserMail", newUser.Email);
+                HttpContext.Session.SetString("SessionUserPhoto", newUser.Photo);
                 return RedirectToAction("Index", "Panel");
             }
             ViewBag.GirisYapmaHataMesaji = "Kullanıcı Adını Veya Şifrenizi Yanlış Girdiniz...";
             return View(user);
+        }
+
+        [HttpPost]
+        public IActionResult CikisYap()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Anasayfa");
         }
 
     }
